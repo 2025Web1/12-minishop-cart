@@ -36,7 +36,7 @@ public
 
 ## 本章から追加されたテーブルについて
 
-前章で作成したテーブルitemsに加え、新たにテーブルcartを作成します。
+前章で作成したテーブル`items`に加え、新たにテーブル`cart`を作成します。
 
 **テーブル名：cart**
 
@@ -58,8 +58,8 @@ public
 
 ### ◆カート内の商品画面
 
-- 商品番号と注文数を受け取り、テーブルcartに登録
-- テーブルcart内のすべてのデータを抽出し、画面に表示
+- 商品番号と注文数を受け取り、テーブル`cart`に登録
+- テーブル`cart`内のすべてのデータを抽出し、画面に表示
 
 **単一の商品がカート内に入っている場合**
 ![](./images/cart_list_display_book.png)
@@ -72,28 +72,28 @@ public
 
 1. `classes/cart.php` にクラス`Cart`を宣言し、以下の2つのメソッドを定義
    1. `addItem`メソッド
-      - 商品番号をキーにテーブルitemsから商品データを抽出
-      - 注文数とあわせてテーブルcartに登録
+      - 商品番号をキーにテーブル`items`から商品データを抽出
+      - 注文数とあわせてテーブル`cart`に登録
 
    2. `getItems`メソッド
-      - テーブルcart内のすべてのデータを抽出
+      - テーブル`cart`内のすべてのデータを抽出
 
 2. 商品詳細画面(`product_detail.php`)から送られてくるリクエストを受け取る、商品追加(`cart_add.php`)を作成
    1. 商品詳細画面(`product_detail.php`)から送られてきた商品番号と注文数を取得
    2. クラス`Cart`のオブジェクトを生成
-   3. `addItem`メソッドを呼び出し、テーブルcartに商品データと注文数を登録
+   3. `addItem`メソッドを呼び出し、テーブル`cart`に商品データと注文数を登録
    4. カート内の商品を表示する「`cart_list.php`」を読み込む
 
 3. カート内の商品画面(`cart_list.php`)に、以下の処理を記述
-   1. Cartオブジェクトの`getItems`メソッドを呼び出し、テーブルcart内のすべてのデータを抽出
-   2. 抽出したテーブルcart内のすべてのデータを画面に表示(その際、金額と合計金額も計算し表示すること)
+   1. Cartオブジェクトの`getItems`メソッドを呼び出し、テーブル`cart`内のすべてのデータを抽出
+   2. 抽出したテーブル`cart`内のすべてのデータを画面に表示(その際、金額と合計金額も計算し表示すること)
 
 ## カート内に関するデータベース操作を行うクラスCart
 
 データベースの基本事項を定義するクラス`DbData`を継承し、カートに関するデータベース操作を行うクラス`Cart`を定義します。
 定義するファイルは、`classes/cart.php` で、このクラス`Cart`には以下の２つのメソッドを定義します。
 
-1. 商品番号をキーにテーブルitemsから商品データを抽出し、注文数とともにテーブルcartに登録するメソッド
+1. 商品番号をキーにテーブル`items`から商品データを抽出し、注文数とともにテーブル`cart`に登録するメソッド
 
 ```text
 アクセス修飾子： public
@@ -102,7 +102,7 @@ public
 戻り値： なし
 ```
 
-2. テーブルcart内のすべてのデータを抽出するメソッド
+2. テーブル`cart`内のすべてのデータを抽出するメソッド
 
 ```text
 アクセス修飾子： public
@@ -143,7 +143,7 @@ class Cart extends DbData
 ```
 
 【ヒント】 `getItems`メソッドで定義するSQL文は以下のとおりです。
-テーブルcartの商品番号から商品テーブルitemsの項目を取り出す必要があるため、以下のようにJOINを使い、テーブルを結合し取得します。
+テーブル`cart`の商品番号から商品テーブル`items`の項目を取り出す必要があるため、以下のようにJOINを使い、テーブルを結合し取得します。
 
 ```php
 $sql = "SELECT items.ident, items.name, items.maker, items.price, cart.quantity, items.image, items.genre FROM cart JOIN items ON cart.ident = items.ident";
@@ -159,7 +159,7 @@ $sql = "SELECT items.ident, items.name, items.maker, items.price, cart.quantity,
 
 1. 商品詳細画面(`product_detail.php`)から送られてきた商品番号と注文数を受け取る
 2. クラス`Cart`のオブジェクトを生成する
-3. Cartオブジェクトの`addItem`メソッドを呼び出し、テーブルcartに商品番号と注文数を登録する
+3. Cartオブジェクトの`addItem`メソッドを呼び出し、テーブル`cart`に商品番号と注文数を登録する
 4. カート内の商品を表示するカート内の商品画面(`cart_list.php`)を読み込む
 
 **cart/cart_add.php**
