@@ -66,11 +66,11 @@ public
 
 ![](./images/cart_add_display_4.png)
 
-1. 同じ商品をさらにカートに入れる(注文数の合計が10を超えるように)
+4. 同じ商品をさらにカートに入れる(注文数の合計が10を超えるように)
 
 ![](./images/product_detail_display_8.png)
 
-1. 注文数が「10」となる
+5. 注文数が「10」となる
 
 ![](./images/cart_add_display_10.png)
 
