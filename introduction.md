@@ -43,4 +43,4 @@ sort: 1
 
 今回新規作成する各ファイルと相互間のやり取りは以下のような図となる。
 
-![](./images/cart_transition.png)
+![](./images/cart_transition_all.png)
