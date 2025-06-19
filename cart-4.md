@@ -12,7 +12,7 @@ sort: 5
 - 特定の商品をカートから削除する・・・仕様書④で実装する
 - カート内の商品の注文数を変更する・・・仕様書④で実装する ←本章はここ
 
-![](./images/cart_transition.png)
+![](./images/cart_transition_update.png)
 
 ## カート内の商品画面（cart_list.php）の修正
 

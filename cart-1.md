@@ -32,7 +32,7 @@ public
 - 特定の商品をカートから削除する・・・仕様書④で実装する
 - カート内の商品の注文数を変更する・・・仕様書④で実装する
 
-![](./images/cart_transition.png)
+![](./images/cart_transition_add.png)
 
 ## 本章から追加されたテーブルについて
 
