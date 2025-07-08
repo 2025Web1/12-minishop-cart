@@ -124,7 +124,7 @@ class Cart extends DbData
 {
   // 商品をカートに入れるメソッド
   // 【ヒント】商品番号($ident)と注文数($quantity)をテーブルcartに登録する処理①、②を記述する
-  public function addItem($ident, $quantity)
+  public function addItem(int $ident, int $quantity)
   {
     // ① SQL文を定義する
     // ② 実行する
